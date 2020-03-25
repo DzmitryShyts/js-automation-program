@@ -47,6 +47,7 @@ console.log(x < 10 && y < 10 ? z : 'Wrong');
 //     const y = 7;
 // }
 
+
 /** TODO
  * The system receives 3 params - x, y, operator.
  * Operator can pass 4 possible values - "add", "subtract", "multiply", "divide".
