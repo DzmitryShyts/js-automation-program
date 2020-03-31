@@ -63,6 +63,7 @@ console.log(inputNumber + '! = ' + total);
   console.log(result);
 }
 
+
 /**
  * calculate a total of income of certain person
  */
