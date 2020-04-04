@@ -3,8 +3,9 @@
  *
  */
 function add(a, b) {
-
+    return a + b;
 }
+console.log(add(2,5));
 
 /**
  * write function that return first and last name of given object
@@ -15,32 +16,52 @@ function add(a, b) {
  * }
  */
 function getFullName(object) {
-
+    object = {
+        firstName: "John",
+        lastName: "Dou"    
+    };
+    return object.firstName + " " + object.lastName;
 }
+console.log(getFullName());
 
 /**
  * write fuction that checks is number is odd
  * true if odd, false if even
  */
 function isOdd(n) {
+    return (n & 1) ? Boolean(true) : Boolean(false);
 
 }
+console.log(isOdd(3));
 
 /**
  * write function that return shortest of words in given array
  * e.g ["one", "two", "three"] should return one
  */
 function getShortest(wordArray) {
-
+    let str = wordArray;
+    let tempWord = str[0];
+    let tempLength = tempWord.length;
+    for (let shortestWord of str) {
+        if (tempLength>shortestWord.length) {
+            tempLength = shortestWord.length;
+            tempWord = shortestWord;
+        }
+    }
+    return tempWord;
 }
+getShortest(["one", "two", "three", "x"]);
 
 /**
  * write function that returns word google with given numbers of "o" symbols
  * e.g getGoogle(5) should return "gooooogle"
  */
-function getGoogle(n) {
 
+function getGoogle(n) {
+    return ('g'+ ('o'.repeat(n)) + 'gle');
+    
 }
+console.log(getGoogle(6));
 
 /**
  * write function that returns object based on given information (params may be null)
@@ -51,9 +72,15 @@ function getGoogle(n) {
  *    age: 42
  * }
  */
-function getUser(firstName, lastName, age) {
-
+function getUser(firstName = null, lastName = null, age = null) {
+    object =  {
+        firstName: firstName,
+        lastName: lastName,
+        age: age
+    };
+    return object;
 }
+console.log(getUser("John", "Dou", 42));
 
 /**
  * write function that calculates total path traveled.
@@ -62,18 +89,19 @@ function getUser(firstName, lastName, age) {
  */
 
 function getTotalPath(path) {
-
+    let travels = path;
+    var totalPath = 0;
+    for (let travel of travels) {
+        totalPath = totalPath + travel.distance;
+    }
+    return totalPath;
 }
 
-/**
- * write function that returns function that calculates given discount
- * e.g
- * const discount10 = discountFunction(10);
- * discount10(90) //returns 81
- */
-function discountFunction(discount) {
-
-}
+getTotalPath([
+    { direction: "Kiyv - Minsk", distance: 567 },
+    { direction: "Kiyv - Paris", distance: 2402 },
+    { direction: "Paris - London", distance: 466 }
+]);
 
 module.exports = {
     add,
@@ -83,5 +111,4 @@ module.exports = {
     getGoogle,
     getUser,
     getTotalPath,
-    discountFunction
 };
