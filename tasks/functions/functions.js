@@ -16,20 +16,20 @@ console.log(add(2,5));
  * }
  */
 function getFullName(object) {
-    object = {
-        firstName: "John",
-        lastName: "Dou"    
-    };
+
     return object.firstName + " " + object.lastName;
 }
-console.log(getFullName());
+console.log(getFullName(object = {
+    firstName: "John",
+    lastName: "Dou"    
+}));
 
 /**
  * write fuction that checks is number is odd
  * true if odd, false if even
  */
 function isOdd(n) {
-    return (n & 1) ? Boolean(true) : Boolean(false);
+    return (n & 1) ? true : false;
 
 }
 console.log(isOdd(3));
@@ -39,10 +39,9 @@ console.log(isOdd(3));
  * e.g ["one", "two", "three"] should return one
  */
 function getShortest(wordArray) {
-    let str = wordArray;
-    let tempWord = str[0];
+    let tempWord = wordArray[0];
     let tempLength = tempWord.length;
-    for (let shortestWord of str) {
+    for (let shortestWord of wordArray) {
         if (tempLength>shortestWord.length) {
             tempLength = shortestWord.length;
             tempWord = shortestWord;
@@ -89,9 +88,8 @@ console.log(getUser("John", "Dou", 42));
  */
 
 function getTotalPath(path) {
-    let travels = path;
     var totalPath = 0;
-    for (let travel of travels) {
+    for (let travel of path) {
         totalPath = totalPath + travel.distance;
     }
     return totalPath;
