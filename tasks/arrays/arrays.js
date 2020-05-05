@@ -4,13 +4,21 @@
  * @return {Array} - char names
  */
 function getCharactersNames(chars) {
+    let arr = [];
+    for (let char of chars) {
+        arr.push(char.name);
+    }
+    return arr;
 }
 
 /**
- * print (console.log) ids of all characters
+ * print (console.log) names of all characters
  * @param {Array} chars
  */
 function printCharacterNames(chars) {
+    for (let char of chars) {
+        console.log(char.name);
+    }
 }
 
 /**
@@ -19,6 +27,7 @@ function printCharacterNames(chars) {
  * @return {Array} - non human characters
  */
 function getNonHumanCharacters(chars) {
+    return chars.filter(char => (char.species !== "Human"));
 }
 
 /**
@@ -27,6 +36,9 @@ function getNonHumanCharacters(chars) {
  * @return {Object} - Jerry object
  */
 function getJerryInfo(chars) {
+    return chars.find((char) => {
+        return char.name === 'Jerry Smith';
+    });
 }
 
 /**
@@ -35,6 +47,11 @@ function getJerryInfo(chars) {
  * @return {boolean}
  */
 function isAllHuman(chars) {
+    for (let i = 0; i < chars.length; i++) {
+        if (chars[i].species.toLowerCase() !== 'human') {
+            return false;
+        }
+    }
 }
 
 /**
@@ -43,6 +60,11 @@ function isAllHuman(chars) {
  * @return {boolean}
  */
 function isAnyFishPerson(chars) {
+    for (let i = 0; i < chars.length; i++) {
+        if (chars[i].type === 'Fish-Person') {
+            return true;
+        }
+    }
 }
 
 /**
@@ -51,7 +73,15 @@ function isAnyFishPerson(chars) {
  * @return {number} - minimum element index
  */
 function minItem(arr) {
-    //PLACE YOUR CODE HERE
+    let minElement = arr[0];
+    let minIndex = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] < minElement) {
+            minIndex = i;
+            minElement = arr[i];
+        }
+    }
+    return minIndex;
 }
 
 module.exports = {
